@@ -1,15 +1,16 @@
 # HTML2CANVAS_CODEIGNITER_AJAX
-Posting the Canvas.DataUrl() using Ajax and CodeIgniter PHP Library
-Hi all, storing canvas.toDataUrl() in CodeIgniter:
+//Posting the Canvas.DataUrl() using Ajax and CodeIgniter PHP Library
+//Hi all, storing canvas.toDataUrl() in CodeIgniter:
 
-Jquery, Ajax, download [htm2canvas.min.js](https://html2canvas.hertzen.com/)
-
- html2canvas($('#targetDiv')[0]).then(function(canvas) {
-            var dataUrl = canvas.toDataURL();
-           var newDataURL = dataUrl.replace(/^data:image\/png/, "data:application/octet-stream"); //do this to clean the url.
-           $("#saveBtn").attr("download", "your_pic_name.png").attr("href", newDataURL); //incase you want to create a download link to save the pic locally.
+//Jquery, Ajax, download [htm2canvas.min.js](https://html2canvas.hertzen.com/)
+//in your script tag
       
-        $.ajax({
+      html2canvas($('#targetDiv')[0]).then(function(canvas) {
+           var dataUrl = canvas.toDataURL();
+           var newDataURL = dataUrl.replace(/^data:image\/png/, "data:application/octet-stream"); //do this to clean the url.
+           $("#saveBtn").attr("download", "your_pic_name.png").attr("href", newDataURL); 
+           //incase you want to create a download link to save the pic locally.
+      $.ajax({
             'type': 'post',
             'url': 'link_to_function_in_controller',
             data: {
