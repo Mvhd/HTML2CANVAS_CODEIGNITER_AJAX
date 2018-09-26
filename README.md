@@ -30,7 +30,7 @@
 
 // in your codeigniter controller
         
-        function link_to_function_in_controller(){
+        public function link_to_function_in_controller(){
             $img = $this->input->post('img'); //get the image string from ajax post
             $img = substr(explode(";",$img)[1], 7); //this extract the exact image
             $target=time().'_img.png'; //rename the image by time
