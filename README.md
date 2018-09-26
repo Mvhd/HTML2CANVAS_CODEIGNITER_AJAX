@@ -14,7 +14,7 @@
             'type': 'post',
             'url': 'link_to_function_in_controller',
             data: {
-                //you can more data here
+                //you can add more data here
                 'img':newDataURL
             },
             success: function(data){
@@ -29,7 +29,7 @@
 
 
 // in your codeigniter controller
-        
+        function link_to_function_in_controller(){
             $img = $this->input->post('img'); //get the image string from ajax post
             $img = substr(explode(";",$img)[1], 7); //this extract the exact image
             $target=time().'_img.png'; //rename the image by time
@@ -42,3 +42,4 @@
             );
             
             $result = $this->model_image->post_image($data); //post_image() here should be your function in codeigniter model layer that handles the database, while the model_image is the model name itself where post_image() draws its properties from
+            }
